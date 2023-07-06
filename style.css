@@ -1,0 +1,61 @@
+/*
+Author: Ally8
+Styling for the News Website for index.html
+*/
+
+* {
+    color: rgb(250,207,72);
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+html,body{
+    height: 100%;
+    margin: 0px;
+}
+h1 {
+    padding-top: 40px;
+    font-size: 4em;
+    text-align: center;
+}
+
+select option {
+    background-color: black;
+}
+
+#bg {
+    
+    background-image: url(raindog.jpeg);
+    height: 100%;
+    background-position: 35% 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-items: center;
+    display: block;
+}
+.selection {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+    background-color: rgb(161,42,32,0.8);
+    width: 30%;
+    padding: 10px 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#breed-list { 
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 20%;
+    margin-bottom: 2em;
+    background-color: rgb(38,27,26);
+    border-radius: ;
+}
+
+#bg input[type=button] {
+    background-color: rgb(38,27,26);
+    border: none;
+    border-radius: 5px;
+    width: 50px;
+}

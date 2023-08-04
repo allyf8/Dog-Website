@@ -5,15 +5,21 @@ JavaScript for the Dog Website
 
 //variables
 const breedListUrl= "https://dog.ceo/api/breeds/list/all";
+const randomDogUrl= "https://dog.ceo/api/breeds/image/random";
 const breedList= document.getElementById("breed-list");
-const breedImageUrl = "https://dog.ceo/api/breeds/${breed}/images/random;" //returns a random image of a breed
+const breedButton = document.getElementById("breedButton");
+const randomDogButton = document.getElementById("randomDog");
+
 //when the page loads
 window.addEventListener("load", updateBreedList);
 
 //retrieve the list of breed fromthe API
-function getBreedList(){
+
+async function getBreedList(){
     return fetch(breedListUrl).then(response => response.json());
+
 }
+
 
 //add breed to drop down list
 function updateBreedList(){
@@ -27,9 +33,35 @@ function updateBreedList(){
         }
     );
 }
+
 function createOption(text){
     let option = document.createElement("option");
     option.textContent = text;
     return option;
   }
 
+//when you click on the go button show dog image 
+    
+    
+
+    breedList.addEventListener("change", getBreedImage);
+    breedButton.addEventListener("click", getBreedImage);
+
+    function getBreedImage(){
+//get list text to populate url
+  let selectedBreed = breedList.options[breedList.selectedIndex].text;
+  //build url
+  let url = `https://dog.ceo/api/breed/${selectedBreed}/images/random`;
+  //fetch call
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const imageUrl = data.message;
+       // Target the <img> element and set its src attribute to the image URL
+            const imgElement = document.getElementById('image');
+            imgElement.src = imageUrl;
+        })
+        .catch(error => {
+            console.error('Error fetching image:', error);
+        })
+    }

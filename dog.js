@@ -40,6 +40,22 @@ function createOption(text){
     return option;
   }
 
+
+  //when button is clicked
+randomDogButton.addEventListener("click", getRandomImage);
+
+//retrieve image of random dog
+
+async function getRandomImage(){ 
+    fetch(randomDogUrl)
+    .then(response => response.json())
+    .then(data => { const dogUrl = data.message;
+    // Target the <img> element and set its src attribute to the image URL
+            const imageElement1 = document.getElementById("randomImage");
+            imageElement1.src = dogUrl;
+            });
+        }
+
 //when you click on the go button show dog image 
     
     
@@ -63,5 +79,4 @@ function createOption(text){
         })
         .catch(error => {
             console.error('Error fetching image:', error);
-        })
-    }
+        });}

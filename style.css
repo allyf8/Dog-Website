@@ -60,7 +60,7 @@ select option {
     height: 20%;
     margin-bottom: 2em;
     background-color: rgb(38,27,26);
-    border-radius: ;
+    border-radius: 10px;
 }
 
 #bg input[type=button] {
@@ -80,5 +80,7 @@ select option {
     img {
         text-indent: -100vw;
         overflow: hidden;
+        border-radius: 10px;
+        max-height: 400px;
     
     }

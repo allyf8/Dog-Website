@@ -9,6 +9,8 @@ const randomDogUrl= "https://dog.ceo/api/breeds/image/random";
 const breedList= document.getElementById("breed-list");
 const breedButton = document.getElementById("breedButton");
 const randomDogButton = document.getElementById("randomDog");
+const catButton= document.getElementById("catButton");
+const catApiKey = "live_71SkqdHISyKhFt5RDBtU38NM5saPPv6KlrCmcTvJodvslCyqBDVa2NQ2oXrM9H61";
 
 //when the page loads
 window.addEventListener("load", updateBreedList);
@@ -74,9 +76,28 @@ async function getRandomImage(){
     .then(data => {
         const imageUrl = data.message;
        // Target the <img> element and set its src attribute to the image URL
-            const imgElement = document.getElementById('image');
-            imgElement.src = imageUrl;
-        })
+        const imgElement = document.getElementById('image');
+        imgElement.src = imageUrl;
+        showButton()
+        function showButton() {
+            breedButton.style.display = 'inline-block';
+        }})  
         .catch(error => {
             console.error('Error fetching image:', error);
         });}
+
+ //when you click on the cat button, show a random cat picture
+ catButton.addEventListener("click", getRandomCat);
+
+ function getRandomCat(){
+    fetch('https://api.thecatapi.com/v1/images/search/',{ headers: {
+        'x-api-key': catApiKey }})
+        .then (response => response.json())
+        .then ((result) => {
+            //items = result;
+        const catImage= document.getElementById("catImage");   
+            catImage.src = result[0].url;
+        }),
+        (error) => {
+            console.log(error);
+}}

@@ -12,8 +12,9 @@
 <body>
     <div id="bg">
         <h1>It's raining cats and dogs</h1>
-        
-   <div class="selection">
+        <div id="container">
+            <!--Random dog panel-->
+        <div class="selection">
             <p> Click below to get a random dog image </p>
             <div id="randomImgDiv">
                 <img id="randomImage" src="">
@@ -22,7 +23,7 @@
         </div>
 
 
-     
+     <!--Select a dog breed panel-->
         <div class="selection">
             <p>Select from the list below to see a cute doggo picture</p>
             <select id="breed-list">
@@ -32,6 +33,15 @@
                 <img id="image" src="">
             </div>
             <input type="button" value="More from this breed" id="breedButton">
+        </div>
+    <!--Random cat panel-->
+    <div class="selection">
+        <p>Click here to get an adorable random cat</p>
+        <div id="catImgDiv">
+            <img id="catImage" src="" alt="" >
+        </div>
+        <input type="button" value="Go" id="catButton">
+    </div>    
         </div>
     </div>
    
